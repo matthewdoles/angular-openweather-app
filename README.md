@@ -7,7 +7,7 @@ This projects is directly forked from and inspired by Matthias Lienau's own [ang
 ## Personal Demo
 https://matthewdoles.github.io/angular-openweather-app/app/index.html#/forecast
 
-## Personal Updates
+## Personal Enhancements
 * The ability to filter for location's weather by zip code
 * An adpative Google Map that updates location based on search parameters ([ng-map](https://ngmap.github.io/))
 * The ability to filter the number of forecasted days for a given location 
