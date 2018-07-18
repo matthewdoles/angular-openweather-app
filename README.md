@@ -9,7 +9,7 @@ https://matthewdoles.github.io/angular-openweather-app/app/index.html#/forecast
 
 ## Personal Updates
 * The ability to filter for location's weather by zip code
-* An adpative Google Map that updates location based on filter location. ([ng-map](https://ngmap.github.io/))
+* An adpative Google Map that updates location based on search parameters. ([ng-map](https://ngmap.github.io/))
 * The ability to filter the number of forecasted days for a given location. 
 * Converted Celsius values to Fahrenheit
 * Basic personal CSS style choices
