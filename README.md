@@ -2,14 +2,14 @@
 
 ## About
 This AngularJS project is a weather app that uses the [OpenWeatherMap API](http://openweathermap.org/API/) to fetch and display up to date weather data. <br/>
-This projects is directly forked from and inspired by Matthias Lienau's own [angular-openweather-app](http://openweathermap.org/API/).
+This projects is directly forked from and inspired by Matthias Lienau's own [angular-openweather-app](https://github.com/atufkas/angular-openweather-app).
 
 ## Personal Demo
 https://matthewdoles.github.io/angular-openweather-app/app/index.html#/forecast
 
 ## Personal Updates
 * The ability to filter for location's weather by zip code
-* An adpative Google Map that updates location based on filter location. [ng-map](https://ngmap.github.io/)
+* An adpative Google Map that updates location based on filter location. ([ng-map](https://ngmap.github.io/))
 * The ability to filter the number of forecasted days for a given location. 
 * Converted Celsius values to Fahrenheit
 * Basic personal CSS style choices
