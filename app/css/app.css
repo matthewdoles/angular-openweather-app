@@ -2,18 +2,26 @@
 
 body {
     padding-top: 80px;
-    padding-bottom: 180px;
+    padding-bottom: 80px;
 }
 
 .weather.panel {
     /*font-weight: lighter !important;*/
+    border: 1px solid #E0E0E0;
 }
 
 .weather.panel .panel-heading {
     font-weight: lighter !important;
     font-size: 1.2em;
+    background-color: #465846;
+    border-bottom: 1px solid #E0E0E0
 }
 
 .weather.panel .panel-footer {
     font-weight: lighter !important;
+}
+
+.btn-group button:hover {
+    background-color: #465846;
+    color: white;
 }

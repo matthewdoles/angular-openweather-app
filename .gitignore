@@ -1,7 +1,7 @@
-node_modules
-bower_components
-components
-dist-src
-data
-.idea
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
 .DS_Store
+.idea
