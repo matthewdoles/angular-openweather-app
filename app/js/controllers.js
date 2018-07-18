@@ -10,7 +10,6 @@ angular.module('openWeatherApp.controllers', [])
       function($scope,openWeatherMap,exampleLocations,stormLocations,ISO3166) {
 
     $scope.message = '';
-    $scope.hasState = '';
 
     // Expose example locations to $scope
     $scope.exampleLocations = exampleLocations;
@@ -19,28 +18,39 @@ angular.module('openWeatherApp.controllers', [])
 
     // On initialization load data for first example entry
     $scope.forecast = openWeatherMap.queryForecastDaily({
-      location: exampleLocations[ 0 ]
+      location: exampleLocations[ 0 ],
+      cnt: 7 
     });
 
     // Get forecast data for location as given in $scope.location
     $scope.getForecastByLocation = function() {
 
       if ($scope.location == '' || $scope.location == undefined) {
-        $scope.hasState = 'has-warning';
         $scope.message = 'Please provide a location';
         return;
       }
 
-      $scope.hasState = 'has-success';
-
-      $scope.forecast = openWeatherMap.queryForecastDaily({
-        location: $scope.location
-      });
+      if (isNaN($scope.location))
+      {
+        $scope.forecast = openWeatherMap.queryForecastDaily({
+          location: $scope.location,
+          cnt: $scope.count //defaults to 7 if not specified
+        });
+      }
+      else 
+      {
+        $scope.forecast = openWeatherMap.queryForecastZip({
+          location: $scope.location + ',us', //default to United States
+          cnt: $scope.count //defaults to 7 if not specified
+        });
+      }
+      
     };
 
     // Set $scope.location and execute search on API
     $scope.setLocation = function(loc) {
       $scope.location = loc;
+      $scope.count = 7;
       $scope.getForecastByLocation();
     };
 

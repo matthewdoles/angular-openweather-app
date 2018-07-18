@@ -13,7 +13,7 @@ angular.module('openWeatherApp.services', ['ngResource'])
   //
   // Define a standard list of "example locations"
   //
-  .value('exampleLocations',['Hamburg','San Francisco','Berlin','Athens','Tokyo','New York','Moscow','Clonakilty'])
+  .value('exampleLocations',['Tampa','Chicago','London','Seattle','New York','Tokyo','Berlin','Reykjavik'])
   //
   // Storm "Xaver" special locations
   //
@@ -37,19 +37,20 @@ angular.module('openWeatherApp.services', ['ngResource'])
     var apiKey = '279b4be6d54c8bf6ea9b12275a567156';
     var apiBaseUrl = 'http://api.openweathermap.org/data/2.5/';
 
-    return $resource(apiBaseUrl + ':path/:subPath?q=:location',
+    return $resource(apiBaseUrl + ':path/:subPath?:filter=:location&cnt=:cnt',
       {
         APPID: apiKey,
         mode: 'json',
         callback: 'JSON_CALLBACK',
-        units: 'metric',
+        units: 'imperial',
         lang: 'en'
       },
       {
         queryWeather: {
           method: 'JSONP',
           params: {
-            path: 'weather'
+            path: 'weather',
+            filter: 'q'
           },
           isArray: false,
           headers: {
@@ -59,7 +60,8 @@ angular.module('openWeatherApp.services', ['ngResource'])
         queryForecast: {
           method: 'JSONP',
           params: {
-            path: 'forecast'
+            path: 'forecast',
+            filter: 'q'
           },
           isArray: false,
           headers: {
@@ -71,7 +73,19 @@ angular.module('openWeatherApp.services', ['ngResource'])
           params: {
             path: 'forecast',
             subPath: 'daily',
-            cnt: 7
+            filter: 'q'
+          },
+          isArray: false,
+          headers: {
+            'x-api-key': apiKey
+          }
+        },
+        queryForecastZip: {
+          method: 'JSONP',
+          params: {
+            path: 'forecast',
+            subPath: 'daily',
+            filter: 'zip'
           },
           isArray: false,
           headers: {

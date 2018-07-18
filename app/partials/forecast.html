@@ -4,45 +4,42 @@
             <div class="col-xs-12">
                 <div>
                     <form class="form-inline" role="form">
+                        <span class="form-group">                            
+                            <input ng-model="location" type="text" class="form-control" id="location" placeholder="City or Zip" >
+                        </span>
+                        <span class="form-group">     
+                            <input ng-model="count" type="text" class="form-control" id="count" placeholder="Forecasted Days">                                                    
+                            </select>
+                        </span>
+                        <button ng-click="getForecastByLocation(location, count)" type="submit" class="btn btn-primary">Search!</button>
+                        <span ng-show="message" class="alert">{{message}}</span>
+                        <br/><br/>
                         <span class="btn-group" >
                             <button ng-repeat="item in exampleLocations" ng-click="setLocation(item)" type="submit" class="btn btn-default">{{item}}</button>
                         </span>
-                        <span class="form-group {{hasState}}">
-                            <label class="sr-only" for="location">City</label>
-                            <input ng-model="location" type="text" class="form-control" id="location" placeholder="City">
-                        </span>
-                        <button ng-click="getForecastByLocation(location)" type="submit" class="btn btn-primary">Search!</button>
-                        <span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <div class="weather-data" ng-show="true">
+        <br/>
         <div class="row">
             <div class="col-xs-12">
-                <div class="">
-                    <h3>
-                        {{forecast.city.name | placeholder:'?'}}, {{forecast.city.country | isoCountry}}
-                        <small>Lon: {{forecast.city.coord.lon | number:2}} Lat: {{forecast.city.coord.lat | number:2}} Population: {{forecast.city.population | number:0}}</small>
-                    </h3>
-                </div>
-            </div>
+                <div class="weather panel panel-primary">
+                    <div class="panel-heading">
+                        <h3> {{forecast.city.name}}, {{forecast.city.country | isoCountry}}</h3>
+                    </div>
+                    <ng-map zoom="12" center="[{{forecast.city.coord.lat | number:2}},{{forecast.city.coord.lon | number:2}}]">
+                        <marker position="[{{forecast.city.coord.lat | number:2}},{{forecast.city.coord.lon | number:2}}]"></marker>
+                    </ng-map>    
+                </div>  
+            </div>          
         </div>
+        <br/>
         <div class="row">
-            <div class="col-xs-12">
-                <div weather-panel="forecast" show-entry="forecast.list[0]"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <div weather-panel="forecast" show-entry="forecast.list[1]"></div>
-            </div>
-            <div class="col-xs-4">
-                <div weather-panel="forecast" show-entry="forecast.list[2]"></div>
-            </div>
-            <div class="col-xs-4">
-                <div weather-panel="forecast" show-entry="forecast.list[3]"></div>
+            <div class="col-xs-6" ng-repeat="item in forecast.list">
+                <div weather-panel="forecast" show-entry="forecast.list[$index]"></div>
             </div>
         </div>
     </div>

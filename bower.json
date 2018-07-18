@@ -1,28 +1,15 @@
 {
-  "name": "angular-openweather-app",
-  "version": "0.1.6",
-  "authors": [
-    "Matthias Lienau <matthias@mlienau.de>"
-  ],
-  "description": "A weather forecast app written in AngularJS.",
-  "main": "app/index.html",
-  "keywords": [
-    "angular",
-    "openweathermap",
-    "weather"
-  ],
+  "name": "angular-seed",
+  "description": "A starter project for AngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",
-  "homepage": "https://github.com/atufkas/angular-openweather-app",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
-    "bootstrap": "~3.0.0",
-    "iso-3166-country-codes-angular": "~1.0.2"
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "angular-loader": "~1.5.0",
+    "angular-mocks": "~1.5.0",
+    "html5-boilerplate": "^5.3.0"
   }
 }
